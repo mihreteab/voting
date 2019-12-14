@@ -37,11 +37,28 @@ h2{
 
 }
 .col-sm-4{
-  border-right: 1px solid lightslategray;
+  border-right: 1px solid rgb(147, 157, 167);
 }
 
-.margin_buttom_one_em{
-  margin-bottom: 2em!important;
+.margin_top_two_em{
+  margin-top: 2em!important;
+}
+.margin_buttom_three_em{
+  margin-bottom: 10em!important;
+}
+
+.party_candidate_list{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+input[type='radio']:checked + li{
+  background-color: lightgreen;
+  border: 2px solid lightcoral;
+
 }
 
 footer {
