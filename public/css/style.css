@@ -1,0 +1,12 @@
+.main_content {
+  margin-top: 15em;
+}
+.number_of_posted_ideas {
+  padding: 1em;
+  font-size: 50%;
+}
+footer {
+  background-color: lightpink;
+  padding: 1em;
+  margin-top: 15em;
+}
