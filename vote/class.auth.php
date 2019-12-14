@@ -19,7 +19,7 @@
             while($row = mysqli_fetch_assoc($result)){
                 $unique_queried = $row["uniqueid"];
                 if($uniqueid == $unique_queried){
-                    header("Location: test1.html");
+                    header("Location: ../pages/voting-list2.php");
                 }
                 else{
                     // echo $uniqueid;
