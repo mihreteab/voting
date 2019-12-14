@@ -16,6 +16,33 @@
   font-size: 32px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+h2{
+  font-size: 150%;
+  font-weight: bold;
+}
+.paty_name{
+  display: inline-block;
+  font-weight: bold;
+  font-size: 150%;
+  
+  /* border: 1px solid red; */
+}
+.candidate{
+  display: block;
+  text-align: left;
+  margin-top: 1em;
+}
+.half_height{
+  height: 50%;
+
+}
+.col-sm-4{
+  border-right: 1px solid lightslategray;
+}
+
+.margin_buttom_one_em{
+  margin-bottom: 2em!important;
+}
 
 footer {
   background-color: lightpink;
