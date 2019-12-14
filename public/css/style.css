@@ -42,7 +42,13 @@ h2{
 .col-sm-4{
   border-right: 1px solid rgb(147, 157, 167);
 }
-
+.align_left{
+  text-align: left;
+  margin-left: -20px;
+}
+.margin_buttom_two_em{
+  margin-bottom: 3em!important;
+}
 .margin_top_two_em{
   margin-top: 2em!important;
 }
