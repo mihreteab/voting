@@ -35,7 +35,7 @@
                             <div class="party-content">
                                 <ul class="list-group">
                                     <label for="0">
-                                        <input type="radio" name="hpr" id="0" class="party_candidate_list">
+                                        <input type="radio" name="hpr" value="10" id="0" class="party_candidate_list">
                                         <li class="list-group-item candidate_value">
                                             <div>
                                                 <div class="row half_height">
@@ -46,8 +46,8 @@
 
                                                     </div>
                                                     <div class="col-sm-8">
-                                                        <p class="paty_name">Party Name</p>
-                                                        <p class="candidate">Candidate Name </p>
+                                                        <p class="paty_name" name="party_name" >Party Name</p>
+                                                        <p class="candidate" name="candidate_name">Candidate Name </p>
 
                                                     </div>
                                                 </div>
@@ -239,8 +239,19 @@
                     </div>
                 </div>
             </form>
-            <button type="button" class="btn btn-success btn-block btn-lg margin_top_two_em" data-toggle="modal"
-                data-tarGET="#modal-danger"><i class="fa fa-trash"></i>Submit</button></td>
+            <button type="button" id="modal_id" class="btn btn-success btn-block btn-lg margin_top_two_em" data-toggle="modal"
+                data-tarGET="#modal-danger"><i class="fa fa-trash"></i>Submit</button>
+
+                <script>
+                    $(document).ready(function(){
+                        $("button[id='modal_id']").click(function(){
+                            var radioValue = $("input[name='hpr']:checked").val();
+                        if(radioValue){
+                            $("#choosed_hpr_party").html(radioValue)
+                        }
+                        });
+                    });
+                </script>
             <div class="modal modal-danger fade" id="modal-danger">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -265,7 +276,7 @@
         
                                                     </div>
                                                     <div class="col-sm-8">
-                                                        <p class="paty_name">Party Name</p>
+                                                        <p class="paty_name" id="choosed_hpr_party">Party Name</p>
                                                         <p class="candidate">Candidate Name </p>
         
                                                     </div>
