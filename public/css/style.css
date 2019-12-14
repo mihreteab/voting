@@ -3,8 +3,19 @@
 }
 .number_of_posted_ideas {
   padding: 1em;
-  font-size: 50%;
+  font-size: 80%;
 }
+.half_size{
+  width: 50%!important;
+}
+.margin_top_one_em{
+  margin-top: 2em;
+}
+#citizen_id{
+  font-size: 32px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 footer {
   background-color: lightpink;
   padding: 1em;
