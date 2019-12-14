@@ -61,6 +61,15 @@ input[type='radio']:checked + li{
 
 }
 
+.successFullyelected{
+  border:1px solid lightgreen;
+  border-radius: 15px;
+  background-color: lightgreen;
+  color:black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 1em;
+}
+
 footer {
   background-color: lightpink;
   padding: 1em;
