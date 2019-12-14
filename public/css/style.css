@@ -1,0 +1,93 @@
+input{
+  text-align: center;
+}
+.main_content {
+  margin-top: 15em;
+}
+.number_of_posted_ideas {
+  padding: 1em;
+  font-size: 80%;
+}
+.half_size{
+  width: 50%!important;
+}
+.margin_top_one_em{
+  margin-top: 2em;
+}
+#citizen_id{
+  padding: 1em;
+  font-size: 32px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+h2{
+  font-size: 150%;
+  font-weight: bold;
+}
+.paty_name{
+  display: inline-block;
+  font-weight: bold;
+  font-size: 150%;
+  
+  /* border: 1px solid red; */
+}
+.candidate{
+  display: block;
+  text-align: left;
+  margin-top: 1em;
+}
+.half_height{
+  height: 50%;
+
+}
+.pull_down{
+  margin-top: 100px;
+  border: 1px solid red;
+}
+.btn_width{
+  width: 500px;
+}
+.col-sm-4{
+  border-right: 1px solid rgb(147, 157, 167);
+}
+.align_left{
+  text-align: left;
+  margin-left: -20px;
+}
+.margin_buttom_two_em{
+  margin-bottom: 3em!important;
+}
+.margin_top_two_em{
+  margin-top: 2em!important;
+}
+.margin_buttom_three_em{
+  margin-bottom: 10em!important;
+}
+
+.party_candidate_list{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+input[type='radio']:checked + li{
+  background-color: lightgreen;
+  border: 2px solid lightcoral;
+
+}
+
+.successFullyelected{
+  border:1px solid lightgreen;
+  border-radius: 15px;
+  background-color: lightgreen;
+  color:black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 1em;
+}
+
+footer {
+  background-color: lightpink;
+  padding: 1em;
+  margin-top: 15em;
+}
