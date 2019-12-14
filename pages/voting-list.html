@@ -35,9 +35,9 @@
                             <div class="party-content">
                                 <ul class="list-group">
                                     <label for="0">
-                                        <input type="radio" name="hpr" value="10" id="0" class="party_candidate_list">
+                                        <input type="radio" name="hpr" value="hpr_10" id="0" class="party_candidate_list">
                                         <li class="list-group-item candidate_value">
-                                            <div>
+                                            <div id="0">
                                                 <div class="row half_height">
                                                     <div class="col-sm-4 ">
                                                         <img class="half_height img-responsive"
@@ -46,8 +46,8 @@
 
                                                     </div>
                                                     <div class="col-sm-8">
-                                                        <p class="paty_name" name="party_name" >Party Name</p>
-                                                        <p class="candidate" name="candidate_name">Candidate Name </p>
+                                                        <p class="paty_name hpr_10" name="party_name" id="10">Party Name: ESP</p>
+                                                        <h5 class="candidate hpr_10" name="candidate_name" id="10">Candidate Name: EHP </h5>
 
                                                     </div>
                                                 </div>
@@ -138,8 +138,9 @@
                         <form action="" method="post">
                             <div class="party-content">
                                 <ul class="list-group">
-                                    <label for="10">
-                                        <input type="radio" name="hf" id="10" class="party_candidate_list">
+
+                                    <label for="hf_20">
+                                        <input type="radio" name="hf" id="hf_20" value="hf_20" class="party_candidate_list">
                                         <li class="list-group-item candidate_value">
                                             <div>
                                                 <div class="row half_height">
@@ -150,8 +151,8 @@
 
                                                     </div>
                                                     <div class="col-sm-8">
-                                                        <p class="paty_name">Party Name</p>
-                                                        <p class="candidate">Candidate Name </p>
+                                                        <p class="paty_name hf_20">EZEMA</p>
+                                                        <h5 class="candidate hf_20"> Abebe Zeleke </h5>
 
                                                     </div>
                                                 </div>
@@ -246,8 +247,18 @@
                     $(document).ready(function(){
                         $("button[id='modal_id']").click(function(){
                             var radioValue = $("input[name='hpr']:checked").val();
+                            var radioValue_hf = $("input[name='hf']:checked").val();
+                            console.log(radioValue_hf);
+                            console.log(radioValue);
+                            var name_of_party_hpr = $("p."+radioValue).text();
+                            var name_of_party_hf = $("p."+radioValue_hf).text();
+                            var hpr_candidate_name = $("h5."+radioValue).text();
+                            var hf_candidate_name = $("h5."+radioValue_hf).text();
                         if(radioValue){
-                            $("#choosed_hpr_party").html(radioValue)
+                            $("#choosed_hpr_party").html(name_of_party_hpr);
+                            $("#choosed_hpr_candidate").html(hpr_candidate_name);
+                            $("#choosed_hf_party").html(name_of_party_hf);
+                            $("#choosed_hf_candidate").html(hf_candidate_name);
                         }
                         });
                     });
@@ -277,7 +288,7 @@
                                                     </div>
                                                     <div class="col-sm-8">
                                                         <p class="paty_name" id="choosed_hpr_party">Party Name</p>
-                                                        <p class="candidate">Candidate Name </p>
+                                                        <p class="candidate" id="choosed_hpr_candidate">Candidate Name </p>
         
                                                     </div>
                                                 </div>
@@ -300,8 +311,8 @@
         
                                                     </div>
                                                     <div class="col-sm-8">
-                                                        <p class="paty_name">Party Name</p>
-                                                        <p class="candidate">Candidate Name </p>
+                                                        <p class="paty_name" id="choosed_hf_party">Party Name</p>
+                                                        <h5 class="candidate" id="choosed_hf_candidate">Candidate Name </h5>
         
                                                     </div>
                                                 </div>

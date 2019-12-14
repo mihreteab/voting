@@ -39,6 +39,13 @@ h2{
   height: 50%;
 
 }
+.pull_down{
+  margin-top: 100px;
+  border: 1px solid red;
+}
+.btn_width{
+  width: 500px;
+}
 .col-sm-4{
   border-right: 1px solid rgb(147, 157, 167);
 }
