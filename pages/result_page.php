@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="5;url=http://localhost:8081/voting/pages/election_ceneter_confirmation.html" />
+    <!-- <meta http-equiv="refresh" content="5;url=http://localhost:8081/voting/pages/election_ceneter_confirmation.html" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>National Election</title>

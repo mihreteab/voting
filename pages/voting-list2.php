@@ -79,8 +79,8 @@
                             $("#choosed_hpr_party_input").val(name_of_party_hpr);
                             $("#choosed_hpr_candidate_input").val(hpr_candidate_name);
 
-                            $("#choosed_hf_party_regional").html(name_of_party_hf);
-                            $("#choosed_hf_candidate_regional").html(hf_candidate_name);
+                            $("#choosed_hpr_party_input_regional").val(name_of_party_hf);
+                            $("#choosed_hpr_candidate_input_regional").val(hf_candidate_name);
                         }
                         });
                     });
@@ -110,7 +110,7 @@
                                                         <div class="col-sm-8">
                                                             <p class="paty_name" id="choosed_hpr_party">Party Name</p>
                                                             <p class="candidate" id="choosed_hpr_candidate">Candidate Name</p>
-                                                            <input type="text" style="display: none;" value="" name="party" id="choosed_hpr_party_input"> 
+                                                            <input type="text" style="display: none;"  value="" name="party" id="choosed_hpr_party_input"> 
                                                             <input type="text" style="display: none;" value="" name="candidate" id="choosed_hpr_candidate_input"> 
                                                         
                                                         </div>

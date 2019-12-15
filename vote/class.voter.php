@@ -107,9 +107,9 @@
 
             $vote_federal = $vote_queried_federal + 1;
 
-            echo $vote_federal;
+            // echo $vote_queried_federal;
 
-            $query_f = "insert into federalcandidates (votenumber) values('{$vote_federal}' where partyname = '{$party}' and candidatename = '{$candidate}'";
+            $query_f = "update federalcandidates set votenumber ={$vote_federal} where partyname = '{$party}' and candidatename = '{$candidate}'";
             $result_f = mysqli_query($connection, $query_f);
             if(!$result_f){
                 echo "error";
@@ -120,19 +120,16 @@
             while($row = mysqli_fetch_array($result3)){
                 $vote_queried_regional = $row['votenumber'];
             }
-
             
             $vote_regional = $vote_queried_regional + 1;
-            
 
-            
-
-            $query_r = "insert into regionalcandidates (votenumber) values('{$vote_regional}' where partyname = '{$party_regional}' and candidatename = '{$candidate_regional}'";
+            $query_r = "update regionalcandidates set votenumber ={$vote_regional} where partyname = '{$party_regional}' and candidatename = '{$candidate_regional}'";
             $result_r = mysqli_query($connection, $query_r);
             if(!$result_r){
                 echo "error";
             }
             else{
+                // echo $party_regional;
                 header("Location: ../pages/citizen_finalized.html");
             }
 
