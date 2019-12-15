@@ -97,7 +97,7 @@
             $connection = $connect->openConnection();
 
             $woredaid = "";
-            $q = "select * from trick1";
+            $q = "select * from trick2";
             $r = mysqli_query($connection, $q);
             while($row = mysqli_fetch_array($r)){
                 $woredaid = $row['value'];
@@ -120,6 +120,8 @@
                             $candidatename = $row['candidatename'];
                             $logopath = $row['logopath'];
                             $votenumber = $row['votenumber'];
+                            $manual = $row['manualvotes'];
+                            $total = $votenumber + $manual;
                             $label = $row['id'];
                             // echo $label;
                             echo "
@@ -135,7 +137,9 @@
                                                     <div class='col-sm-8'>
                                                         <p class='paty_name'>{$partyname}</p>
                                                         <p class='candidate'>{$candidatename}</p>
-                                                        <h5 class='paty_name'>{$votenumber}</h5>
+                                                        <p class=''>Automated votes = {$votenumber}</p>
+                                                        <p class=''>Manual votes = {$manual}</p>
+                                                        <p class=''>Total votes = {$total}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -160,6 +164,8 @@
                             $candidatename = $row['candidatename'];
                             $logopath = $row['logopath'];
                             $votenumber = $row['votenumber'];
+                            $manual = $row['manualvotes'];
+                            $total = $votenumber + $manual;
                             $label = $row['id'];
                             $label = $label + 50;
                             // echo $label;
@@ -174,9 +180,11 @@
                                                         <img class='half_height img-responsive' src='../public/images/{$logopath}.png' alt='National-Election-Board-Ethiopia logo' width='250px'>
                                                     </div>
                                                     <div class='col-sm-8'>
-                                                        <p class='paty_name'>{$partyname}</p>
-                                                        <p class='candidate'>{$candidatename}</p>
-                                                        <h5 class='paty_name'>{$votenumber}</h5>
+                                                    <p class='paty_name'>{$partyname}</p>
+                                                    <p class='candidate'>{$candidatename}</p>
+                                                    <p class=''>Automated votes = {$votenumber}</p>
+                                                    <p class=''>Manual votes = {$manual}</p>
+                                                    <p class=''>Total votes = {$total}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -208,7 +216,7 @@
             $uniqueno = substr($stationid, -6);
             switch($type){
                 case "federal":
-                    $query = "select * from manualvotesfederal where region = '{$region}' and zone = '{$zone}' and woreda = '{$woreda}' and station = '{$station}' and uniqueno = '{$uniqueno}'";
+                    $query = "select * from federalcandidates where region = '{$region}' and zone = '{$zone}' and woreda = '{$woreda}' and station = '{$station}' and uniqueno = '{$uniqueno}'";
                     $result = mysqli_query($connection, $query);
                     if(!$result){
                         echo $query; 
@@ -218,7 +226,7 @@
                             $partyname = $row['partyname'];
                             $candidatename = $row['candidatename'];
                             $logopath = $row['logopath'];
-                            $votenumber = $row['votenumber'];
+                            $manual = $row['manualvotes'];
                             $label = $row['id'];
                             // echo $label;
                             echo "
@@ -234,7 +242,7 @@
                                                     <div class='col-sm-8'>
                                                         <p class='paty_name'>{$partyname}</p>
                                                         <p class='candidate'>{$candidatename}</p>
-                                                        <h5 class='paty_name'>{$votenumber}</h5>
+                                                        <h5 class='paty_name'>{$manual}</h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -292,7 +300,7 @@
         function manualvotecounts($type){
             $connect = new ConfigDB();
             $connection = $connect->openConnection();
-
+            
             $stationid = "";
             $q = "select * from trick2";
             $r = mysqli_query($connection, $q);
@@ -307,11 +315,12 @@
             $uniqueno = substr($stationid, -6);
             switch($type){
                 case "federal":
-                    $query = "select * from manualvotesfederal where region = '{$region}' and zone = '{$zone}' and woreda = '{$woreda}' and station = '{$station}' and uniqueno = '{$uniqueno}'";
+                    $query = "select * from federalcandidates where region = '{$region}' and zone = '{$zone}' and woreda = '{$woreda}' and station = '{$station}' and uniqueno = '{$uniqueno}'";
                     $result = mysqli_query($connection, $query);
+                    // echo $query;
                     if(!$result){
                         echo $query; 
-                    }
+                    }                    
                     else{
                         // echo $query;
                         while($row = mysqli_fetch_array($result)){
@@ -357,7 +366,7 @@
                     }
                     break;
                 case "regional":
-                    $query = "select * from manualvotesregional where region = '{$region}' and zone = '{$zone}' and woreda = '{$woreda}' and station = '{$station}' and uniqueno = '{$uniqueno}'";
+                    $query = "select * from regionalcandidates where region = '{$region}' and zone = '{$zone}' and woreda = '{$woreda}' and station = '{$station}' and uniqueno = '{$uniqueno}'";
                     $result = mysqli_query($connection, $query);
                     if(!$result){
                         echo $query; 
@@ -522,6 +531,103 @@
                                         </div>
                                         <span class='selected'></span>
                                     </li>
+                                    </ul>
+                                ";
+                        }
+                    }
+                    break;
+                }
+        }
+
+        function tazabis($type){
+            $connect = new ConfigDB();
+            $connection = $connect->openConnection();
+
+            $stationid = "";
+            $q = "select * from trick2";
+            $r = mysqli_query($connection, $q);
+            while($row = mysqli_fetch_array($r)){
+                $stationid = $row['value'];
+            }
+            
+            $region = substr($stationid, 0, 3);
+            $zone = substr($stationid, 3, 3);
+            $woreda = substr($stationid, 6, 3);
+            $station = substr($stationid, 9, 3);
+            $uniqueno = substr($stationid, -6);
+            switch($type){
+                case "federal":
+                    $query = "select * from tazabis";
+                    $result = mysqli_query($connection, $query);
+                    if(!$result){
+                        echo $query; 
+                    }
+                    else{
+                        while($row = mysqli_fetch_array($result)){
+                            $fullname = $row['fullname'];
+                            
+                            echo "
+                                    <ul class='list-group'>
+                                                                          
+                                        <li class='list-group-item candidate_value'>
+                                            <div class='row half_height'>
+                                            <div class='form-group'>
+                                            <label class='control-label col-sm-2' for='name'
+                                              >{$fullname}:</label
+                                            >
+                                            <div class='col-sm-10'>
+                                              <input
+                                                type='password'
+                                                class='form-control'
+                                                id='password'
+                                                placeholder='nter password'
+                                              />
+                                            </div>
+                                          </div>
+                                            </div>
+                                            <span class='elected'></span>
+                                        </li>
+                                    </ul>
+                                ";
+                        }
+                    }
+                    break;
+                case "regional":
+                    $query = "select * from regionalcandidates where region = '{$region}' and zone = '{$zone}' and woreda = '{$woreda}' and station = '{$station}' and uniqueno = '{$uniqueno}'";
+                    
+                    // $query = "select * from regionalcandidates";
+                    $result = mysqli_query($connection, $query);
+                    if(!$result){
+                        echo "error";
+                    }
+                    else{
+                        while($row = mysqli_fetch_array($result)){
+                            $partyname = $row['partyname'];
+                            $candidatename = $row['candidatename'];
+                            $logopath = $row['logopath'];
+                            $votenumber = $row['votenumber'];
+                            $label = $row['id'];
+                            $label = $label + 50;
+                            // echo $label;
+                            echo "
+                                    <ul class='list-group'>
+                                        <label for='{$label}'>
+                                        <input type='radio' value='{$partyname}' name='hrr' id='{$label}' class='party_candidate_list'>                                    
+                                        <li class='list-group-item candidate_value'>
+                                            <div class='row half_height'>
+                                                <div class='row half_height'>
+                                                    <div class='col-sm-4 '>
+                                                        <img class='half_height img-responsive' src='../public/images/{$logopath}.png' alt='National-Election-Board-Ethiopia logo' width='250px'>
+                                                    </div>
+                                                    <div class='col-sm-8'>
+                                                        <p class='paty_name'>{$partyname}</p>
+                                                        <p class='candidate'>{$candidatename}</p>
+                                                        <h5 class='paty_name'>{$votenumber}</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <span class='elected'></span>
+                                        </li>
                                     </ul>
                                 ";
                         }

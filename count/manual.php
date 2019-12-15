@@ -5,7 +5,7 @@
     $connect = new ConfigDB();
     $connection = $connect->openConnection();
 
-    $query1 = "select * from manualvotesfederal";
+    $query1 = "select * from federalcandidates";
     $result1 = mysqli_query($connection, $query1);
     $numRows1 = mysqli_num_rows($result1);
 
@@ -28,7 +28,7 @@
         $now = $tobesubmitted[$i];
 
         $partyname = substr($values[$i], 18);
-        $query2 = "update manualvotesfederal set votenumber = {$now} where partyname = '{$partyname}'";
+        $query2 = "update federalcandidates set manualvotes = {$now} where partyname = '{$partyname}'";
         $result2 = mysqli_query($connection, $query2);
         if(!$result2){
             echo "error";

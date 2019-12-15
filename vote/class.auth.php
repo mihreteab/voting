@@ -19,6 +19,14 @@
             while($row = mysqli_fetch_assoc($result)){
                 $unique_queried = $row["uniqueid"];
                 if($uniqueid == $unique_queried){
+                    $query3 = "insert into votedusers (uniqueid) values('{$uniqueid}')";
+                    $result3 = mysqli_query($connection, $query3);
+                    
+                    $query2 = "delete from registeredvoters where uniqueid = '{$uniqueid}'";
+                    $result2 = mysqli_query($connection, $query2);
+                    
+                    echo $query3 . "</br>" . $query2;
+
                     header("Location: ../pages/voting-list2.php");
                 }
                 else{

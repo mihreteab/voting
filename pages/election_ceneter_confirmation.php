@@ -68,37 +68,18 @@
 
                     </div>
                     <div class="col-sm-6">
-                        <form class="form-horizontal">
-                            <div class="form-group">
-                              <label class="control-label col-sm-2" for="name">Takele:</label>
-                              <div class="col-sm-10">
-                                <input type="password" class="form-control" id="password" placeholder="Enter password">
-                              </div>
+                        <form action="../count/success.php" method="post" class="form-horizontal">
+                          <div class="party-content">
+                                <?php                             
+                                    require_once '../count/class.counter.php';
+                                    $lib = new Counter();       
+                                    // $query = "select * from allbooks";
+                                    // $result = mysqli_query($connection, $query);                                    
+                                    echo $lib->tazabis("federal");
+                                ?>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="name">Takele:</label>
-                                <div class="col-sm-10">
-                                  <input type="password" class="form-control" id="password" placeholder="Enter password">
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label class="control-label col-sm-2" for="name">Takele:</label>
-                                <div class="col-sm-10">
-                                  <input type="password" class="form-control" id="password" placeholder="Enter password">
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label class="control-label col-sm-2" for="name">Takele:</label>
-                                <div class="col-sm-10">
-                                  <input type="password" class="form-control" id="password" placeholder="Enter password">
-                                </div>
-                              </div>
-                            <div class="form-group">
-                              <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-success btn-block btn-lg">Submit</button>
-                              </div>
-                            </div>
-                          </form>
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </form>
                     </div>
                 </div>
                 

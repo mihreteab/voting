@@ -30,7 +30,7 @@
 
             <form action="../count/manual.php" method="POST">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 bold_right_border">
                         <h2>House Of People Representatives </h2>
                         <div>
                             <div class="party-content">

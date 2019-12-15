@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- <meta http-equiv="refresh" content="5;url=http://localhost:8081/voting/pages/election_ceneter_confirmation.html" /> -->
+    <!-- <meta http-equiv="refresh" content="3;url=http://localhost:8081/voting/pages/result_page.php" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>National Election</title>
@@ -31,7 +31,7 @@
 
             <form action="#" method="POST">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 bold_right_border">
                         <h2>House Of People Representative </h2>
                         <form action="" method="post">
                             <div class="party-content">
@@ -45,8 +45,8 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-sm-6">
-                        <h2>House Of Federation </h2>
+                    <div class="col-sm-6 ">
+                        <h2>House Of Regional Representatives </h2>
                         <form action="" method="post">
                             <div class="party-content">
                                 <?php                             
